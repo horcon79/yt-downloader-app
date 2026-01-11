@@ -1,0 +1,13 @@
+﻿  Trwa okre┼Ťlanie projekt├│w do przywr├│cenia...
+  Wszystkie projekty s─ů aktualne na potrzeby przywr├│cenia.
+C:\Projects\aplikacja_windows_minimax_test\Services\HistoryService.cs(26,17): error CS0246: Nie mo┼╝na znale┼║─ç nazwy typu lub przestrzeni nazw ÔÇ×DownloadHistoryItemÔÇŁ (brak dyrektywy using lub odwo┼éania do zestawu?) [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_bhuinhdb_wpftmp.csproj]
+C:\Projects\aplikacja_windows_minimax_test\Services\HistoryService.cs(49,26): error CS0246: Nie mo┼╝na znale┼║─ç nazwy typu lub przestrzeni nazw ÔÇ×DownloadHistoryItemÔÇŁ (brak dyrektywy using lub odwo┼éania do zestawu?) [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_bhuinhdb_wpftmp.csproj]
+
+Kompilacja NIE POWIOD┼üA SI─ś.
+
+C:\Projects\aplikacja_windows_minimax_test\Services\HistoryService.cs(26,17): error CS0246: Nie mo┼╝na znale┼║─ç nazwy typu lub przestrzeni nazw ÔÇ×DownloadHistoryItemÔÇŁ (brak dyrektywy using lub odwo┼éania do zestawu?) [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_bhuinhdb_wpftmp.csproj]
+C:\Projects\aplikacja_windows_minimax_test\Services\HistoryService.cs(49,26): error CS0246: Nie mo┼╝na znale┼║─ç nazwy typu lub przestrzeni nazw ÔÇ×DownloadHistoryItemÔÇŁ (brak dyrektywy using lub odwo┼éania do zestawu?) [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_bhuinhdb_wpftmp.csproj]
+    Ostrze┼╝enia: 0
+    Liczba b┼é─Öd├│w: 2
+
+Czas, kt├│ry up┼éyn─ů┼é: 00:00:00.96

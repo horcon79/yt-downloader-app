@@ -21,6 +21,7 @@ public class MainViewModel : INotifyPropertyChanged
     private readonly YoutubeDownloadService _downloadService;
     private readonly string _appDirectory;
 
+    private readonly HistoryService _historyService;
     private CancellationTokenSource? _cancellationTokenSource;
     private bool _isDownloading;
     private string _url = string.Empty;
@@ -50,12 +51,15 @@ public class MainViewModel : INotifyPropertyChanged
         _appDirectory = AppContext.BaseDirectory;
         _downloadService = new YoutubeDownloadService(_appDirectory);
 
+        _historyService = new HistoryService();
+
         // Komendy
         DownloadCommand = new AsyncRelayCommand(DownloadAsync, () => !IsDownloading && CanDownload());
         CancelCommand = new AsyncRelayCommand(CancelAsync, () => IsDownloading);
         SelectFolderCommand = new RelayCommand(SelectFolder);
         ClearLogCommand = new RelayCommand(() => LogMessages = string.Empty);
         OpenFolderCommand = new RelayCommand(OpenOutputFolder);
+        ShowHistoryCommand = new RelayCommand(ShowHistory);
 
         // Inicjalizacja presetów
         _videoBitratePresets = VideoBitrateOption.GetPresets();
@@ -262,6 +266,7 @@ public class MainViewModel : INotifyPropertyChanged
     public ICommand SelectFolderCommand { get; }
     public ICommand ClearLogCommand { get; }
     public ICommand OpenFolderCommand { get; }
+    public ICommand ShowHistoryCommand { get; }
 
     #endregion
 
@@ -340,6 +345,14 @@ public class MainViewModel : INotifyPropertyChanged
             OutputFolder = documentsPath;
             AddLogMessage($"Uzywam folderu dokumentow: {OutputFolder}");
         }
+    }
+
+    private void ShowHistory()
+    {
+        // To zostanie zaimplementowane po utworzeniu HistoryWindow
+        var historyWindow = new Views.HistoryWindow(_historyService);
+        historyWindow.Owner = System.Windows.Application.Current.MainWindow;
+        historyWindow.ShowDialog();
     }
 
     private void OpenOutputFolder()
@@ -428,6 +441,16 @@ public class MainViewModel : INotifyPropertyChanged
                 Progress = 100;
                 ProgressText = "100%";
                 StatusMessage = "Pobieranie zakonczone!";
+                
+                // Dodaj do historii
+                _historyService.AddEntry(new DownloadHistoryItem
+                {
+                    Title = result.FileName ?? "Film YouTube",
+                    Url = Url,
+                    Date = DateTime.Now,
+                    FilePath = Path.Combine(OutputFolder, result.FileName ?? ""),
+                    Format = SelectedFormat.ToString()
+                });
             }
             else if (result.State == DownloadState.Cancelled)
             {

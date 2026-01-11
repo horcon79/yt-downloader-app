@@ -1,4 +1,4 @@
-# Horcon - YouTube Downloader v.1.0
+# Horcon - YouTube Downloader v.1.3
 
 Aplikacja desktopowa do pobierania wideo z YouTube na platformę Windows.
 
@@ -9,8 +9,9 @@ Aplikacja desktopowa do pobierania wideo z YouTube na platformę Windows.
 - **Ustawienia jakości** z wyborem bitrate audio (96/128/192/256/320 kbps)
 - **Tryb transkodowania** - kompresja wideo z FFmpeg
 - **Wskaźnik postępu** z prędkością pobierania i ETA
-- **Logi** - szczegółowe informacje o procesie pobierania
+- **Logi** - szczegółowe informacje o procesie pobierania zapisywane w folderze aplikacji
 - **Anulowanie pobierania** - możliwość zatrzymania w każdym momencie
+- **Historia pobierania** - lista poprzednich pobieranych filmów z statusem
 
 ## Wymagania
 
@@ -81,4 +82,4 @@ FFmpeg jest wydawany na licencji GPLv3
 
 ## Autor
 
-Horcon - YouTube Downloader v.1.0
+Horcon - YouTube Downloader

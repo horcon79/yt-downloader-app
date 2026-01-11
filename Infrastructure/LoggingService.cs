@@ -13,15 +13,16 @@ public static class Logger
 
     static Logger()
     {
-        _logFolder = Path.Combine(
-            Environment.GetFolderPath(Environment.SpecialFolder.LocalApplicationData),
-            "YoutubeDownloader",
-            "logs");
+        // Logi w katalogu aplikacji
+        _logFolder = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "logs");
 
         // Utworz folder jesli nie istnieje
         try
         {
-            Directory.CreateDirectory(_logFolder);
+            if (!Directory.Exists(_logFolder))
+            {
+                Directory.CreateDirectory(_logFolder);
+            }
         }
         catch
         {
