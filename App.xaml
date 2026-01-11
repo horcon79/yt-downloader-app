@@ -8,7 +8,7 @@
     <Application.Resources>
         <ResourceDictionary>
             <ResourceDictionary.MergedDictionaries>
-                <ResourceDictionary/>
+                <ResourceDictionary Source="Resources/Languages/Dictionary-pl.xaml"/>
             </ResourceDictionary.MergedDictionaries>
             
             <!-- Konwertery -->

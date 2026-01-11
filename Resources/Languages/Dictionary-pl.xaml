@@ -1,0 +1,76 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Main Window -->
+    <sys:String x:Key="AppTitle">Horcon - Youtube Downloader V.1.4</sys:String>
+    <sys:String x:Key="HeaderTitle">YouTube Downloader</sys:String>
+    <sys:String x:Key="UrlGroupBoxHeader">URL filmu</sys:String>
+    <sys:String x:Key="UrlToolTip">Wklej URL filmu YouTube lub Shorts</sys:String>
+    <sys:String x:Key="PasteButton">Wklej</sys:String>
+    <sys:String x:Key="FormatGroupBoxHeader">Format</sys:String>
+    <sys:String x:Key="Mp3Label">MP3 (audio)</sys:String>
+    <sys:String x:Key="M4aLabel">M4A (audio)</sys:String>
+    <sys:String x:Key="HistoryButton">Historia</sys:String>
+    <sys:String x:Key="QualityGroupBoxHeader">Ustawienia jakości</sys:String>
+    <sys:String x:Key="NoTranscodingLabel">A) Bez transkodowania (najszybciej)</sys:String>
+    <sys:String x:Key="TranscodeLabel">B) Transkoduj (FFmpeg) i ustaw bitrate</sys:String>
+    <sys:String x:Key="VideoBitrateLabel">Bitrate wideo:</sys:String>
+    <sys:String x:Key="CustomBitrateLabel">Wpisz bitrate (kbps):</sys:String>
+    <sys:String x:Key="AudioBitrateLabel">Bitrate audio:</sys:String>
+    <sys:String x:Key="OutputFolderGroupBoxHeader">Folder zapisu</sys:String>
+    <sys:String x:Key="SelectButton">Wybierz...</sys:String>
+    <sys:String x:Key="ProgressGroupBoxHeader">Postęp</sys:String>
+    <sys:String x:Key="DownloadButton">Pobierz</sys:String>
+    <sys:String x:Key="CancelButton">Anuluj</sys:String>
+    <sys:String x:Key="OpenFolderButton">Otwórz folder</sys:String>
+    <sys:String x:Key="ToolAvailabilityLabel">Dostępność narzędzi:</sys:String>
+    <sys:String x:Key="YtdlpAvailable">yt-dlp: Dostępny</sys:String>
+    <sys:String x:Key="YtdlpNotAvailable">yt-dlp: Brak (pobieranie nie będzie działać)</sys:String>
+    <sys:String x:Key="FfmpegAvailable">ffmpeg: Dostępny</sys:String>
+    <sys:String x:Key="FfmpegNotAvailable">ffmpeg: Brak (transkodowanie wyłączone)</sys:String>
+    <sys:String x:Key="ToolsLocationInfo">Narzędzia powinny znajdować się w katalogu 'tools/' obok pliku EXE.</sys:String>
+    <sys:String x:Key="LogGroupBoxHeader">Log</sys:String>
+
+    <!-- History Window -->
+    <sys:String x:Key="HistoryTitle">Historia pobrań</sys:String>
+    <sys:String x:Key="HistoryHeader">Historia ostatnich pobrań</sys:String>
+    <sys:String x:Key="HistoryColumnDate">Data</sys:String>
+    <sys:String x:Key="HistoryColumnTitle">Tytuł</sys:String>
+    <sys:String x:Key="HistoryColumnFormat">Format</sys:String>
+    <sys:String x:Key="HistoryColumnActions">Akcje</sys:String>
+    <sys:String x:Key="OpenFolderButtonLong">Otwórz folder</sys:String>
+    <sys:String x:Key="ClearHistoryButton">Wyczyść historię</sys:String>
+    <sys:String x:Key="CloseButton">Zamknij</sys:String>
+
+    <!-- Status Messages -->
+    <sys:String x:Key="StatusStarting">Rozpoczynanie pobierania...</sys:String>
+    <sys:String x:Key="StatusDownloading">Pobieranie w toku...</sys:String>
+    <sys:String x:Key="StatusCancelling">Anulowanie pobierania...</sys:String>
+    <sys:String x:Key="StatusFinished">Pobieranie zakończone!</sys:String>
+    <sys:String x:Key="StatusCancelled">Anulowano</sys:String>
+    <sys:String x:Key="StatusError">Błąd</sys:String>
+    <sys:String x:Key="StatusTranscoding">Transkodowanie (FFmpeg)...</sys:String>
+    
+    <!-- Folder Picker -->
+    <sys:String x:Key="SelectFolderDescription">Wybierz folder do zapisania pobranych plików</sys:String>
+    
+    <!-- Dialogs -->
+    <sys:String x:Key="ErrorItemNotFound">Folder już nie istnieje.</sys:String>
+    <sys:String x:Key="ConfirmClearHistory">Czy na pewno chcesz wyczyścić całą historię pobrań?</sys:String>
+    <sys:String x:Key="ConfirmTitle">Potwierdzenie</sys:String>
+    <sys:String x:Key="InfoTitle">Informacja</sys:String>
+    <sys:String x:Key="ErrorTitle">Błąd</sys:String>
+    <sys:String x:Key="ErrorOpeningFolder">Błąd podczas otwierania folderu: {0}</sys:String>
+    
+    <!-- Logs -->
+    <sys:String x:Key="LogStart">=== Rozpoczynanie pobierania ===</sys:String>
+    <sys:String x:Key="LogFinished">=== Pobieranie zakończone pomyślnie ===</sys:String>
+    <sys:String x:Key="LogCancelled">=== Pobieranie anulowane ===</sys:String>
+    <sys:String x:Key="LogToolNotFound">OSTRZEŻENIE: Nie znaleziono {0}. Pobieranie nie będzie działać.</sys:String>
+    <sys:String x:Key="LogFfmpegNotFound">OSTRZEŻENIE: Nie znaleziono ffmpeg.exe. Transkodowanie będzie wyłączone.</sys:String>
+    
+    <!-- Language Selection -->
+    <sys:String x:Key="LanguageLabel">Język:</sys:String>
+
+</ResourceDictionary>

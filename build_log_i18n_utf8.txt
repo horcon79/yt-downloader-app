@@ -1,0 +1,17 @@
+﻿  Trwa okre┼Ťlanie projekt├│w do przywr├│cenia...
+  Wszystkie projekty s─ů aktualne na potrzeby przywr├│cenia.
+C:\Projects\aplikacja_windows_minimax_test\ViewModels\MainViewModel.cs(62,17): error CS0103: Nazwa ÔÇ×RefreshLocalizedMessagesÔÇŁ nie istnieje w bie┼╝─ůcym kontek┼Ťcie [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_zlnxqnkm_wpftmp.csproj]
+C:\Projects\aplikacja_windows_minimax_test\Services\YoutubeDownloadService.cs(339,38): warning CS8604: Mo┼╝liwy argument odwo┼éania o warto┼Ťci null dla parametru ÔÇ×path1ÔÇŁ w ÔÇ×string Path.Combine(string path1, string path2)ÔÇŁ. [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_zlnxqnkm_wpftmp.csproj]
+C:\Projects\aplikacja_windows_minimax_test\Services\YoutubeDownloadService.cs(345,44): warning CS8604: Mo┼╝liwy argument odwo┼éania o warto┼Ťci null dla parametru ÔÇ×pathÔÇŁ w ÔÇ×string[] Directory.GetFiles(string path, string searchPattern)ÔÇŁ. [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_zlnxqnkm_wpftmp.csproj]
+C:\Projects\aplikacja_windows_minimax_test\Services\YoutubeDownloadService.cs(357,39): warning CS8604: Mo┼╝liwy argument odwo┼éania o warto┼Ťci null dla parametru ÔÇ×path1ÔÇŁ w ÔÇ×string Path.Combine(string path1, string path2)ÔÇŁ. [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_zlnxqnkm_wpftmp.csproj]
+
+Kompilacja NIE POWIOD┼üA SI─ś.
+
+C:\Projects\aplikacja_windows_minimax_test\Services\YoutubeDownloadService.cs(339,38): warning CS8604: Mo┼╝liwy argument odwo┼éania o warto┼Ťci null dla parametru ÔÇ×path1ÔÇŁ w ÔÇ×string Path.Combine(string path1, string path2)ÔÇŁ. [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_zlnxqnkm_wpftmp.csproj]
+C:\Projects\aplikacja_windows_minimax_test\Services\YoutubeDownloadService.cs(345,44): warning CS8604: Mo┼╝liwy argument odwo┼éania o warto┼Ťci null dla parametru ÔÇ×pathÔÇŁ w ÔÇ×string[] Directory.GetFiles(string path, string searchPattern)ÔÇŁ. [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_zlnxqnkm_wpftmp.csproj]
+C:\Projects\aplikacja_windows_minimax_test\Services\YoutubeDownloadService.cs(357,39): warning CS8604: Mo┼╝liwy argument odwo┼éania o warto┼Ťci null dla parametru ÔÇ×path1ÔÇŁ w ÔÇ×string Path.Combine(string path1, string path2)ÔÇŁ. [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_zlnxqnkm_wpftmp.csproj]
+C:\Projects\aplikacja_windows_minimax_test\ViewModels\MainViewModel.cs(62,17): error CS0103: Nazwa ÔÇ×RefreshLocalizedMessagesÔÇŁ nie istnieje w bie┼╝─ůcym kontek┼Ťcie [C:\Projects\aplikacja_windows_minimax_test\YoutubeDownloader_zlnxqnkm_wpftmp.csproj]
+    Ostrze┼╝enia: 3
+    Liczba b┼é─Öd├│w: 1
+
+Czas, kt├│ry up┼éyn─ů┼é: 00:00:01.01

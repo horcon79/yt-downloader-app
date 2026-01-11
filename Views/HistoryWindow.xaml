@@ -4,7 +4,7 @@
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         mc:Ignorable="d"
-        Title="Historia pobrań" Height="450" Width="700"
+        Title="{DynamicResource HistoryTitle}" Height="450" Width="700"
         WindowStartupLocation="CenterOwner"
         ShowInTaskbar="False">
     <Grid Margin="10">
@@ -14,18 +14,18 @@
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <TextBlock Text="Historia ostatnich pobrań" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
+        <TextBlock Text="{DynamicResource HistoryHeader}" FontSize="18" FontWeight="Bold" Margin="0,0,0,10"/>
 
         <ListView x:Name="HistoryListView" Grid.Row="1" ScrollViewer.HorizontalScrollBarVisibility="Disabled">
             <ListView.View>
                 <GridView>
-                    <GridViewColumn Header="Data" DisplayMemberBinding="{Binding Date, StringFormat={}{0:yyyy-MM-dd HH:mm}}" Width="120"/>
-                    <GridViewColumn Header="Tytuł" DisplayMemberBinding="{Binding Title}" Width="300"/>
-                    <GridViewColumn Header="Format" DisplayMemberBinding="{Binding Format}" Width="60"/>
-                    <GridViewColumn Header="Akcje" Width="150">
+                    <GridViewColumn Header="{DynamicResource HistoryColumnDate}" DisplayMemberBinding="{Binding Date, StringFormat={}{0:yyyy-MM-dd HH:mm}}" Width="120"/>
+                    <GridViewColumn Header="{DynamicResource HistoryColumnTitle}" DisplayMemberBinding="{Binding Title}" Width="300"/>
+                    <GridViewColumn Header="{DynamicResource HistoryColumnFormat}" DisplayMemberBinding="{Binding Format}" Width="60"/>
+                    <GridViewColumn Header="{DynamicResource HistoryColumnActions}" Width="150">
                         <GridViewColumn.CellTemplate>
                             <DataTemplate>
-                                <Button Content="Otwórz folder" Click="OpenFolder_Click" Padding="5,1" Margin="2"/>
+                                <Button Content="{DynamicResource OpenFolderButtonLong}" Click="OpenFolder_Click" Padding="5,1" Margin="2"/>
                             </DataTemplate>
                         </GridViewColumn.CellTemplate>
                     </GridViewColumn>
@@ -34,8 +34,8 @@
         </ListView>
 
         <StackPanel Grid.Row="2" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,10,0,0">
-            <Button Content="Wyczyść historię" Click="ClearHistory_Click" Padding="10,5" Margin="5,0"/>
-            <Button Content="Zamknij" IsCancel="True" Padding="20,5" Margin="5,0"/>
+            <Button Content="{DynamicResource ClearHistoryButton}" Click="ClearHistory_Click" Padding="10,5" Margin="5,0"/>
+            <Button Content="{DynamicResource CloseButton}" IsCancel="True" Padding="20,5" Margin="5,0"/>
         </StackPanel>
     </Grid>
 </Window>

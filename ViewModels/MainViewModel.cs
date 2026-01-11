@@ -36,6 +36,7 @@ public class MainViewModel : INotifyPropertyChanged
     private List<VideoBitrateOption> _videoBitratePresets;
     private VideoBitrateOption _selectedVideoBitratePreset;
     private bool _isCustomVideoBitrateVisible;
+    private string _currentLanguage = "pl";
     private string _eta = string.Empty;
     private string _statusMessage = string.Empty;
     private string _logMessages = string.Empty;
@@ -45,6 +46,23 @@ public class MainViewModel : INotifyPropertyChanged
 
     // Dostepne wartosci bitrate dla combobox
     public Array AudioBitrateValues => Enum.GetValues(typeof(AudioBitrate));
+    public List<string> AvailableLanguages { get; } = new List<string> { "pl", "en", "de" };
+
+    public string CurrentLanguage
+    {
+        get => _currentLanguage;
+        set
+        {
+            if (_currentLanguage != value)
+            {
+                _currentLanguage = value;
+                LocalizationService.SetLanguage(_currentLanguage);
+                OnPropertyChanged();
+                // Odswiez komunikaty, ktore moga byc w locie
+                RefreshLocalizedMessages();
+            }
+        }
+    }
 
     public MainViewModel()
     {
@@ -278,13 +296,13 @@ public class MainViewModel : INotifyPropertyChanged
 
         if (!ToolAvailability.YtdlpAvailable)
         {
-            AddLogMessage("OSTRZEZENIE: Nie znaleziono yt-dlp.exe. Pobieranie nie bedzie dzialac.");
+            AddLogMessage(string.Format(LocalizationService.GetString("LogToolNotFound"), "yt-dlp.exe"));
             AddLogMessage($"Szukano w: {Path.Combine(_appDirectory, "tools")}");
         }
 
         if (!ToolAvailability.FfmpegAvailable)
         {
-            AddLogMessage("OSTRZEZENIE: Nie znaleziono ffmpeg.exe. FFmpeg jest wymagany do polaczenia strumieni wideo i audio.");
+            AddLogMessage(LocalizationService.GetString("LogFfmpegNotFound"));
             AddLogMessage($"Szukano w: {Path.Combine(_appDirectory, "tools")}");
         }
 
@@ -327,7 +345,7 @@ public class MainViewModel : INotifyPropertyChanged
         {
             using var dialog = new FolderBrowserDialog
             {
-                Description = "Wybierz folder do zapisania pobranych plikow",
+                Description = LocalizationService.GetString("SelectFolderDescription"),
                 UseDescriptionForTitle = true
             };
 
@@ -382,8 +400,8 @@ public class MainViewModel : INotifyPropertyChanged
         IsDownloading = true;
         Progress = 0;
         ProgressText = "0%";
-        StatusMessage = "Rozpoczynanie pobierania...";
-        AddLogMessage($"=== Rozpoczynanie pobierania ===");
+        StatusMessage = LocalizationService.GetString("StatusStarting");
+        AddLogMessage(LocalizationService.GetString("LogStart"));
         AddLogMessage($"URL: {Url}");
         AddLogMessage($"Format: {SelectedFormat}");
         AddLogMessage($"Folder: {OutputFolder}");
@@ -416,19 +434,31 @@ public class MainViewModel : INotifyPropertyChanged
                 StatusMessage = info.ErrorMessage;
                 AddLogMessage($"BLAD: {info.ErrorMessage}");
             }
-            else if (info.State == DownloadState.Downloading)
+            else
             {
-                StatusMessage = "Pobieranie...";
-            }
-            else if (info.State == DownloadState.Completed)
-            {
-                StatusMessage = "Pobieranie zakonczone!";
-                AddLogMessage("=== Pobieranie zakonczone pomyslnie ===");
-            }
-            else if (info.State == DownloadState.Cancelled)
-            {
-                StatusMessage = "Pobieranie anulowane.";
-                AddLogMessage("=== Pobieranie anulowane ===");
+                Progress = info.Percentage;
+                ProgressText = $"{info.Percentage:F1}%";
+
+                if (!string.IsNullOrEmpty(info.Speed))
+                    Speed = info.Speed;
+
+                if (!string.IsNullOrEmpty(info.Eta))
+                    Eta = info.Eta;
+
+                switch (info.State)
+                {
+                    case DownloadState.Downloading:
+                        StatusMessage = LocalizationService.GetString("StatusDownloading");
+                        break;
+                    case DownloadState.Completed:
+                        StatusMessage = LocalizationService.GetString("StatusFinished");
+                        AddLogMessage(LocalizationService.GetString("LogFinished"));
+                        break;
+                    case DownloadState.Cancelled:
+                        StatusMessage = LocalizationService.GetString("StatusCancelled");
+                        AddLogMessage(LocalizationService.GetString("LogCancelled"));
+                        break;
+                }
             }
         });
 
@@ -440,7 +470,7 @@ public class MainViewModel : INotifyPropertyChanged
             {
                 Progress = 100;
                 ProgressText = "100%";
-                StatusMessage = "Pobieranie zakonczone!";
+                StatusMessage = LocalizationService.GetString("StatusFinished");
                 
                 // Dodaj do historii
                 _historyService.AddEntry(new DownloadHistoryItem
@@ -454,7 +484,7 @@ public class MainViewModel : INotifyPropertyChanged
             }
             else if (result.State == DownloadState.Cancelled)
             {
-                StatusMessage = "Pobieranie anulowane.";
+                StatusMessage = LocalizationService.GetString("StatusCancelled");
             }
             else if (result.State == DownloadState.Error)
             {
@@ -479,7 +509,7 @@ public class MainViewModel : INotifyPropertyChanged
     {
         if (_cancellationTokenSource != null)
         {
-            AddLogMessage("Anulowanie pobierania...");
+            AddLogMessage(LocalizationService.GetString("StatusCancelling"));
             _cancellationTokenSource.Cancel();
         }
     }
@@ -493,6 +523,27 @@ public class MainViewModel : INotifyPropertyChanged
     protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
+    }
+
+    private void RefreshLocalizedMessages()
+    {
+        // Odswiez status message jesli jest w stanie spoczinku/konca
+        if (!IsDownloading)
+        {
+            if (StatusMessage == "Pobieranie zakończone!" || StatusMessage == "Download completed!" || StatusMessage == "Download abgeschlossen!")
+                StatusMessage = LocalizationService.GetString("StatusFinished");
+            else if (StatusMessage == "Anulowano" || StatusMessage == "Cancelled" || StatusMessage == "Abgebrochen" || StatusMessage == "Pobieranie anulowane.")
+                StatusMessage = LocalizationService.GetString("StatusCancelled");
+            else if (StatusMessage == "Rozpoczynanie pobierania..." || StatusMessage == "Starting download..." || StatusMessage == "Download wird gestartet...")
+                StatusMessage = LocalizationService.GetString("StatusStarting");
+        }
+        else
+        {
+            StatusMessage = LocalizationService.GetString("StatusDownloading");
+        }
+        
+        OnPropertyChanged(nameof(StatusMessage));
+        OnPropertyChanged(nameof(AudioBitrateValues));
     }
 
     #endregion

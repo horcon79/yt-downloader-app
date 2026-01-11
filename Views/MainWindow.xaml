@@ -5,8 +5,8 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:vm="clr-namespace:YoutubeDownloader.ViewModels"
         mc:Ignorable="d"
-        Title="Horcon - Youtube Downloader V.1.3" 
-        Height="750" 
+        Title="{DynamicResource AppTitle}" 
+        Height="780" 
         Width="700"
         ResizeMode="CanResize"
         WindowStartupLocation="CenterScreen"
@@ -40,20 +40,30 @@
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
             <RowDefinition Height="Auto"/>
+            <RowDefinition Height="Auto"/>
             <RowDefinition Height="*"/>
             <RowDefinition Height="Auto"/>
         </Grid.RowDefinitions>
 
-        <!-- Tytul -->
-        <TextBlock Grid.Row="0" 
-                   Text="YouTube Downloader" 
-                   FontSize="24" 
-                   FontWeight="Bold" 
-                   HorizontalAlignment="Center" 
-                   Margin="0,10"/>
+        <!-- Tytul i Jezyk -->
+        <Grid Grid.Row="0" Margin="0,5">
+            <TextBlock Text="{DynamicResource HeaderTitle}" 
+                       FontSize="24" 
+                       FontWeight="Bold" 
+                       HorizontalAlignment="Center" 
+                       VerticalAlignment="Center"/>
+            
+            <StackPanel Orientation="Horizontal" HorizontalAlignment="Right" VerticalAlignment="Center">
+                <Label Content="{DynamicResource LanguageLabel}" VerticalAlignment="Center"/>
+                <ComboBox ItemsSource="{Binding AvailableLanguages}"
+                          SelectedItem="{Binding CurrentLanguage}"
+                          Width="60"
+                          Margin="5,0"/>
+            </StackPanel>
+        </Grid>
 
         <!-- URL -->
-        <GroupBox Grid.Row="1" Header="URL filmu" Margin="0,5">
+        <GroupBox Grid.Row="1" Header="{DynamicResource UrlGroupBoxHeader}" Margin="0,5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -61,17 +71,17 @@
                 </Grid.ColumnDefinitions>
                 <TextBox Grid.Column="0" 
                          Text="{Binding Url, UpdateSourceTrigger=PropertyChanged}"
-                         ToolTip="Wklej URL filmu YouTube lub Shorts"
+                         ToolTip="{DynamicResource UrlToolTip}"
                          IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
                 <Button Grid.Column="1" 
-                        Content="Wklej" 
-                        Command="ApplicationCommands.Paste"
-                        IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
+                         Content="{DynamicResource PasteButton}" 
+                         Command="ApplicationCommands.Paste"
+                         IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
             </Grid>
         </GroupBox>
 
         <!-- Format -->
-        <GroupBox Grid.Row="2" Header="Format" Margin="0,5">
+        <GroupBox Grid.Row="2" Header="{DynamicResource FormatGroupBoxHeader}" Margin="0,5">
             <StackPanel Orientation="Horizontal" Margin="5">
                 <RadioButton Content="MP4" 
                              IsChecked="{Binding SelectedFormat, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Mp4}"
@@ -86,18 +96,18 @@
                              Margin="10,0"
                              IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
                 <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="10,0"/>
-                <RadioButton Content="MP3 (audio)" 
+                <RadioButton Content="{DynamicResource Mp3Label}" 
                              IsChecked="{Binding SelectedFormat, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Mp3}"
                              Margin="10,0"
                              IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
-                <RadioButton Content="M4A (audio)" 
+                <RadioButton Content="{DynamicResource M4aLabel}" 
                              IsChecked="{Binding SelectedFormat, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=M4A}"
                              Margin="10,0"
                              IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
                 
                 <Separator Style="{StaticResource {x:Static ToolBar.SeparatorStyleKey}}" Margin="10,0"/>
                 
-                <Button Content="Historia" 
+                <Button Content="{DynamicResource HistoryButton}" 
                         Command="{Binding ShowHistoryCommand}"
                         Padding="10,2"
                         Background="#FFF0F0F0"
@@ -117,23 +127,23 @@
         </GroupBox>
 
         <!-- Ustawienia jakosci -->
-        <GroupBox Grid.Row="3" Header="Ustawienia jakosci" Margin="0,5">
+        <GroupBox Grid.Row="3" Header="{DynamicResource QualityGroupBoxHeader}" Margin="0,5">
             <StackPanel Margin="5">
                 <!-- Tryb transkodowania (tylko dla wideo) -->
                 <StackPanel Visibility="{Binding IsAudioOnly, Converter={StaticResource BoolToVisibilityConverter}, ConverterParameter=Reverse}">
-                    <RadioButton Content="A) Bez transkodowania (najszybciej)" 
-                                 IsChecked="{Binding EncodingMode, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=NoTranscoding}"
-                                 Margin="5,2"
-                                 IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
-                    <RadioButton Content="B) Transkoduj (FFmpeg) i ustaw bitrate" 
-                                 IsChecked="{Binding EncodingMode, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Transcode}"
-                                 Margin="5,2"
-                                 IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
+                    <RadioButton Content="{DynamicResource NoTranscodingLabel}" 
+                                  IsChecked="{Binding EncodingMode, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=NoTranscoding}"
+                                  Margin="5,2"
+                                  IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
+                    <RadioButton Content="{DynamicResource TranscodeLabel}" 
+                                  IsChecked="{Binding EncodingMode, Converter={StaticResource EnumToBoolConverter}, ConverterParameter=Transcode}"
+                                  Margin="5,2"
+                                  IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
                     
                     <!-- Opcje transkodowania -->
                     <StackPanel Margin="20,5,5,5" Visibility="{Binding EncodingMode, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Transcode}">
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
-                            <Label Content="Bitrate wideo:" Margin="0" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource VideoBitrateLabel}" Margin="0" VerticalAlignment="Center"/>
                             <ComboBox ItemsSource="{Binding VideoBitratePresets}"
                                       SelectedItem="{Binding SelectedVideoBitratePreset}"
                                       DisplayMemberPath="Name"
@@ -144,7 +154,7 @@
                         
                         <StackPanel Orientation="Horizontal" Margin="0,0,0,5" 
                                     Visibility="{Binding IsCustomVideoBitrateVisible, Converter={StaticResource BoolToVisibilityConverter}}">
-                            <Label Content="Wpisz bitrate (kbps):" VerticalAlignment="Center"/>
+                            <Label Content="{DynamicResource CustomBitrateLabel}" VerticalAlignment="Center"/>
                             <TextBox Text="{Binding VideoBitrate, UpdateSourceTrigger=PropertyChanged}"
                                      Width="80"
                                      Margin="5,0"
@@ -152,20 +162,20 @@
                         </StackPanel>
                     </StackPanel>
                 </StackPanel>
-
+                
                 <!-- Bitrate audio -->
                 <StackPanel Orientation="Horizontal" Margin="5">
-                    <Label Content="Bitrate audio:"/>
+                    <Label Content="{DynamicResource AudioBitrateLabel}"/>
                     <ComboBox ItemsSource="{Binding AudioBitrateValues}" 
-                              SelectedValue="{Binding AudioBitrate}"
-                              Width="100"
-                              IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
+                               SelectedValue="{Binding AudioBitrate}"
+                               Width="100"
+                               IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
                 </StackPanel>
             </StackPanel>
         </GroupBox>
 
         <!-- Folder zapisu -->
-        <GroupBox Grid.Row="4" Header="Folder zapisu" Margin="0,5">
+        <GroupBox Grid.Row="4" Header="{DynamicResource OutputFolderGroupBoxHeader}" Margin="0,5">
             <Grid>
                 <Grid.ColumnDefinitions>
                     <ColumnDefinition Width="*"/>
@@ -176,14 +186,14 @@
                          IsReadOnly="True"
                          ToolTip="{Binding OutputFolder}"/>
                 <Button Grid.Column="1" 
-                        Content="Wybierz..." 
-                        Command="{Binding SelectFolderCommand}"
-                        IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
+                         Content="{DynamicResource SelectButton}" 
+                         Command="{Binding SelectFolderCommand}"
+                         IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
             </Grid>
         </GroupBox>
 
         <!-- Postep -->
-        <GroupBox Grid.Row="5" Header="Postep" Margin="0,5">
+        <GroupBox Grid.Row="5" Header="{DynamicResource ProgressGroupBoxHeader}" Margin="0,5">
             <StackPanel Margin="5">
                 <ProgressBar Minimum="0" Maximum="100" 
                              Value="{Binding Progress}" 
@@ -219,19 +229,19 @@
 
         <!-- Przyciski -->
         <StackPanel Grid.Row="6" Orientation="Horizontal" HorizontalAlignment="Center" Margin="0,10">
-            <Button Content="Pobierz" 
+            <Button Content="{DynamicResource DownloadButton}" 
                     Command="{Binding DownloadCommand}"
                     Width="120"
                     Height="35"
                     FontWeight="Bold"
                     Background="{Binding IsDownloading, Converter={StaticResource BoolToGrayConverter}}"/>
-            <Button Content="Anuluj" 
+            <Button Content="{DynamicResource CancelButton}" 
                     Command="{Binding CancelCommand}"
                     Width="120"
                     Height="35"
                     Background="LightSalmon"
                     IsEnabled="{Binding IsDownloading}"/>
-            <Button Content="Otworz folder" 
+            <Button Content="{DynamicResource OpenFolderButton}" 
                     Command="{Binding OpenFolderCommand}"
                     Width="120"
                     IsEnabled="{Binding OutputFolder, Converter={StaticResource StringToBoolConverter}}"/>
@@ -240,16 +250,16 @@
         <!-- Status narzedzi -->
         <Border Grid.Row="7" BorderBrush="LightGray" BorderThickness="1" Margin="0,5" Padding="5">
             <StackPanel>
-                <TextBlock Text="Dostepnosc narzedzi:" FontWeight="Bold"/>
+                <TextBlock Text="{DynamicResource ToolAvailabilityLabel}" FontWeight="Bold"/>
                 <TextBlock Foreground="{Binding ToolAvailability.YtdlpAvailable, Converter={StaticResource BoolToGreenConverter}}">
                     <TextBlock.Style>
                         <Style TargetType="TextBlock">
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding ToolAvailability.YtdlpAvailable}" Value="True">
-                                    <Setter Property="Text" Value="yt-dlp: Dostepny"/>
+                                    <Setter Property="Text" Value="{DynamicResource YtdlpAvailable}"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding ToolAvailability.YtdlpAvailable}" Value="False">
-                                    <Setter Property="Text" Value="yt-dlp: Brak (pobieranie nie bedzie dzialac)"/>
+                                    <Setter Property="Text" Value="{DynamicResource YtdlpNotAvailable}"/>
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
@@ -260,16 +270,16 @@
                         <Style TargetType="TextBlock">
                             <Style.Triggers>
                                 <DataTrigger Binding="{Binding ToolAvailability.FfmpegAvailable}" Value="True">
-                                    <Setter Property="Text" Value="ffmpeg: Dostepny"/>
+                                    <Setter Property="Text" Value="{DynamicResource FfmpegAvailable}"/>
                                 </DataTrigger>
                                 <DataTrigger Binding="{Binding ToolAvailability.FfmpegAvailable}" Value="False">
-                                    <Setter Property="Text" Value="ffmpeg: Brak (transkodowanie wylaczone)"/>
+                                    <Setter Property="Text" Value="{DynamicResource FfmpegNotAvailable}"/>
                                 </DataTrigger>
                             </Style.Triggers>
                         </Style>
                     </TextBlock.Style>
                 </TextBlock>
-                <TextBlock Text="Narzędzia powinny znajdowac sie w katalogu 'tools/' obok pliku EXE." 
+                <TextBlock Text="{DynamicResource ToolsLocationInfo}" 
                            FontSize="10" 
                            Foreground="Gray"
                            Margin="0,5"/>
@@ -277,7 +287,7 @@
         </Border>
 
         <!-- Log -->
-        <GroupBox Grid.Row="8" Header="Log" Margin="0,5" Height="200">
+        <GroupBox Grid.Row="8" Header="{DynamicResource LogGroupBoxHeader}" Margin="0,5" Height="200">
             <Grid>
                 <TextBox x:Name="LogTextBox"
                          IsReadOnly="True" 

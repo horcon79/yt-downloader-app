@@ -41,19 +41,22 @@ public partial class HistoryWindow : Window
                 }
                 catch (Exception ex)
                 {
-                    MessageBox.Show($"Blad podczas otwierania folderu: {ex.Message}", "Blad", MessageBoxButton.OK, MessageBoxImage.Error);
+                    MessageBox.Show(string.Format(LocalizationService.GetString("ErrorOpeningFolder"), ex.Message), 
+                        LocalizationService.GetString("ErrorTitle"), MessageBoxButton.OK, MessageBoxImage.Error);
                 }
             }
             else
             {
-                MessageBox.Show("Folder juz nie istnieje.", "Informacja", MessageBoxButton.OK, MessageBoxImage.Information);
+                MessageBox.Show(LocalizationService.GetString("ErrorItemNotFound"), 
+                    LocalizationService.GetString("InfoTitle"), MessageBoxButton.OK, MessageBoxImage.Information);
             }
         }
     }
 
     private void ClearHistory_Click(object sender, RoutedEventArgs e)
     {
-        if (MessageBox.Show("Czy na pewno chcesz wyczyscic cala historie pobran?", "Potwierdzenie", MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
+        if (MessageBox.Show(LocalizationService.GetString("ConfirmClearHistory"), 
+            LocalizationService.GetString("ConfirmTitle"), MessageBoxButton.YesNo, MessageBoxImage.Question) == MessageBoxResult.Yes)
         {
             _historyService.ClearHistory();
             LoadHistory();

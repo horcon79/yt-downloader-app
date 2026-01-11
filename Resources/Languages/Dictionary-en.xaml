@@ -1,0 +1,76 @@
+<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:sys="clr-namespace:System;assembly=mscorlib">
+    
+    <!-- Main Window -->
+    <sys:String x:Key="AppTitle">Horcon - Youtube Downloader V.1.4</sys:String>
+    <sys:String x:Key="HeaderTitle">YouTube Downloader</sys:String>
+    <sys:String x:Key="UrlGroupBoxHeader">Video URL</sys:String>
+    <sys:String x:Key="UrlToolTip">Paste YouTube video or Shorts URL</sys:String>
+    <sys:String x:Key="PasteButton">Paste</sys:String>
+    <sys:String x:Key="FormatGroupBoxHeader">Format</sys:String>
+    <sys:String x:Key="Mp3Label">MP3 (audio)</sys:String>
+    <sys:String x:Key="M4aLabel">M4A (audio)</sys:String>
+    <sys:String x:Key="HistoryButton">History</sys:String>
+    <sys:String x:Key="QualityGroupBoxHeader">Quality Settings</sys:String>
+    <sys:String x:Key="NoTranscodingLabel">A) No transcoding (fastest)</sys:String>
+    <sys:String x:Key="TranscodeLabel">B) Transcode (FFmpeg) and set bitrate</sys:String>
+    <sys:String x:Key="VideoBitrateLabel">Video Bitrate:</sys:String>
+    <sys:String x:Key="CustomBitrateLabel">Enter bitrate (kbps):</sys:String>
+    <sys:String x:Key="AudioBitrateLabel">Audio Bitrate:</sys:String>
+    <sys:String x:Key="OutputFolderGroupBoxHeader">Save folder</sys:String>
+    <sys:String x:Key="SelectButton">Select...</sys:String>
+    <sys:String x:Key="ProgressGroupBoxHeader">Progress</sys:String>
+    <sys:String x:Key="DownloadButton">Download</sys:String>
+    <sys:String x:Key="CancelButton">Cancel</sys:String>
+    <sys:String x:Key="OpenFolderButton">Open folder</sys:String>
+    <sys:String x:Key="ToolAvailabilityLabel">Tool Availability:</sys:String>
+    <sys:String x:Key="YtdlpAvailable">yt-dlp: Available</sys:String>
+    <sys:String x:Key="YtdlpNotAvailable">yt-dlp: Missing (download will not work)</sys:String>
+    <sys:String x:Key="FfmpegAvailable">ffmpeg: Available</sys:String>
+    <sys:String x:Key="FfmpegNotAvailable">ffmpeg: Missing (transcoding disabled)</sys:String>
+    <sys:String x:Key="ToolsLocationInfo">Tools should be located in 'tools/' folder next to EXE.</sys:String>
+    <sys:String x:Key="LogGroupBoxHeader">Log</sys:String>
+
+    <!-- History Window -->
+    <sys:String x:Key="HistoryTitle">Download History</sys:String>
+    <sys:String x:Key="HistoryHeader">Recent Downloads History</sys:String>
+    <sys:String x:Key="HistoryColumnDate">Date</sys:String>
+    <sys:String x:Key="HistoryColumnTitle">Title</sys:String>
+    <sys:String x:Key="HistoryColumnFormat">Format</sys:String>
+    <sys:String x:Key="HistoryColumnActions">Actions</sys:String>
+    <sys:String x:Key="OpenFolderButtonLong">Open folder</sys:String>
+    <sys:String x:Key="ClearHistoryButton">Clear History</sys:String>
+    <sys:String x:Key="CloseButton">Close</sys:String>
+
+    <!-- Status Messages -->
+    <sys:String x:Key="StatusStarting">Starting download...</sys:String>
+    <sys:String x:Key="StatusDownloading">Downloading...</sys:String>
+    <sys:String x:Key="StatusCancelling">Cancelling download...</sys:String>
+    <sys:String x:Key="StatusFinished">Download completed!</sys:String>
+    <sys:String x:Key="StatusCancelled">Cancelled</sys:String>
+    <sys:String x:Key="StatusError">Error</sys:String>
+    <sys:String x:Key="StatusTranscoding">Transcoding (FFmpeg)...</sys:String>
+
+    <!-- Folder Picker -->
+    <sys:String x:Key="SelectFolderDescription">Select folder to save downloaded files</sys:String>
+
+    <!-- Dialogs -->
+    <sys:String x:Key="ErrorItemNotFound">Folder no longer exists.</sys:String>
+    <sys:String x:Key="ConfirmClearHistory">Are you sure you want to clear the entire download history?</sys:String>
+    <sys:String x:Key="ConfirmTitle">Confirmation</sys:String>
+    <sys:String x:Key="InfoTitle">Information</sys:String>
+    <sys:String x:Key="ErrorTitle">Error</sys:String>
+    <sys:String x:Key="ErrorOpeningFolder">Error opening folder: {0}</sys:String>
+
+    <!-- Logs -->
+    <sys:String x:Key="LogStart">=== Starting download ===</sys:String>
+    <sys:String x:Key="LogFinished">=== Download completed successfully ===</sys:String>
+    <sys:String x:Key="LogCancelled">=== Download cancelled ===</sys:String>
+    <sys:String x:Key="LogToolNotFound">WARNING: {0} not found. Download will not work.</sys:String>
+    <sys:String x:Key="LogFfmpegNotFound">WARNING: ffmpeg.exe not found. Transcoding will be disabled.</sys:String>
+
+    <!-- Language Selection -->
+    <sys:String x:Key="LanguageLabel">Language:</sys:String>
+
+</ResourceDictionary>
