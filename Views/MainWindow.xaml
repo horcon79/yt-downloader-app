@@ -123,6 +123,23 @@
                         </Style>
                     </Button.Style>
                 </Button>
+                
+                <Button Content="{DynamicResource BatchDownloadButton}" 
+                        Command="{Binding ShowBatchDownloadCommand}"
+                        Padding="10,2"
+                        Background="#E6F7FF"
+                        BorderBrush="#1890FF"
+                        VerticalAlignment="Center">
+                    <Button.Style>
+                        <Style TargetType="Button">
+                            <Style.Triggers>
+                                <Trigger Property="IsMouseOver" Value="True">
+                                    <Setter Property="Background" Value="#BAE7FF"/>
+                                </Trigger>
+                            </Style.Triggers>
+                        </Style>
+                    </Button.Style>
+                </Button>
             </StackPanel>
         </GroupBox>
 

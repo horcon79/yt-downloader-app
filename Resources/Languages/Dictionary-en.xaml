@@ -72,5 +72,43 @@
 
     <!-- Language Selection -->
     <sys:String x:Key="LanguageLabel">Language:</sys:String>
+    
+    <!-- Batch Download Window -->
+    <sys:String x:Key="BatchWindowTitle">Batch Download</sys:String>
+    <sys:String x:Key="BatchDownloadButton">Batch</sys:String>
+    <sys:String x:Key="BatchImportGroupHeader">Import URL</sys:String>
+    <sys:String x:Key="BatchImportFromFile">Import from file...</sys:String>
+    <sys:String x:Key="BatchAddUrl">Add URL</sys:String>
+    <sys:String x:Key="BatchSelectAll">Select all</sys:String>
+    <sys:String x:Key="BatchDeselectAll">Deselect all</sys:String>
+    <sys:String x:Key="BatchSettingsGroupHeader">Settings</sys:String>
+    <sys:String x:Key="BatchQueueGroupHeader">Download queue</sys:String>
+    <sys:String x:Key="BatchOverallProgressHeader">Overall progress</sys:String>
+    <sys:String x:Key="BatchParallelLabel">Parallel:</sys:String>
+    <sys:String x:Key="BatchSkipExisting">Skip existing</sys:String>
+    <sys:String x:Key="BatchAutoStart">Auto start</sys:String>
+    <sys:String x:Key="BatchStartAll">Download all</sys:String>
+    <sys:String x:Key="BatchPause">Pause</sys:String>
+    <sys:String x:Key="BatchRetryFailed">Retry failed</sys:String>
+    <sys:String x:Key="BatchRemoveCompleted">Remove completed</sys:String>
+    <sys:String x:Key="BatchColumnStatus">Status</sys:String>
+    <sys:String x:Key="BatchColumnProgress">Progress</sys:String>
+    <sys:String x:Key="BatchColumnUrl">URL</sys:String>
+    <sys:String x:Key="BatchColumnFormat">Format</sys:String>
+    <sys:String x:Key="BatchColumnSpeed">Speed</sys:String>
+    <sys:String x:Key="BatchImportTitle">Select file with URLs</sys:String>
+    <sys:String x:Key="BatchImportFilter">Text files (*.txt)|*.txt|CSV files (*.csv)|*.csv|JSON files (*.json)|*.json|All files (*.*)|*.*</sys:String>
+    <sys:String x:Key="BatchImportCount">Imported {0} URLs</sys:String>
+    <sys:String x:Key="BatchUrlAdded">Added URL: {0}</sys:String>
+    <sys:String x:Key="BatchNoUrlInClipboard">Clipboard does not contain YouTube URL</sys:String>
+    <sys:String x:Key="BatchDownloadStarting">Starting batch download...</sys:String>
+    <sys:String x:Key="BatchDownloadCompleted">Batch download completed!</sys:String>
+    <sys:String x:Key="BatchDownloadCancelled">Download cancelled.</sys:String>
+    <sys:String x:Key="BatchDownloadPaused">Download paused.</sys:String>
+    <sys:String x:Key="BatchDownloadError">Download error: {0}</sys:String>
+    <sys:String x:Key="BatchNoItemsSelected">No items selected for download.</sys:String>
+    <sys:String x:Key="BatchInvalidOutputFolder">Output folder not selected or does not exist.</sys:String>
+    <sys:String x:Key="BatchOutputFolderChanged">Changed folder: {0}</sys:String>
+    <sys:String x:Key="BatchConfirmClose">Are you sure you want to close batch download window? All ongoing downloads will be cancelled.</sys:String>
 
 </ResourceDictionary>

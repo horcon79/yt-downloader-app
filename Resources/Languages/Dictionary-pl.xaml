@@ -72,5 +72,43 @@
     
     <!-- Language Selection -->
     <sys:String x:Key="LanguageLabel">Język:</sys:String>
+    
+    <!-- Batch Download Window -->
+    <sys:String x:Key="BatchWindowTitle">Pobieranie wsadowe</sys:String>
+    <sys:String x:Key="BatchDownloadButton">Wsadowe</sys:String>
+    <sys:String x:Key="BatchImportGroupHeader">Import URL</sys:String>
+    <sys:String x:Key="BatchImportFromFile">Importuj z pliku...</sys:String>
+    <sys:String x:Key="BatchAddUrl">Dodaj URL</sys:String>
+    <sys:String x:Key="BatchSelectAll">Zaznacz wszystko</sys:String>
+    <sys:String x:Key="BatchDeselectAll">Odznacz wszystko</sys:String>
+    <sys:String x:Key="BatchSettingsGroupHeader">Ustawienia</sys:String>
+    <sys:String x:Key="BatchQueueGroupHeader">Kolejka pobierania</sys:String>
+    <sys:String x:Key="BatchOverallProgressHeader">Postęp ogólny</sys:String>
+    <sys:String x:Key="BatchParallelLabel">Równolegle:</sys:String>
+    <sys:String x:Key="BatchSkipExisting">Pomiń istniejące</sys:String>
+    <sys:String x:Key="BatchAutoStart">Autostart</sys:String>
+    <sys:String x:Key="BatchStartAll">Pobierz wszystko</sys:String>
+    <sys:String x:Key="BatchPause">Wstrzymaj</sys:String>
+    <sys:String x:Key="BatchRetryFailed">Ponów błędne</sys:String>
+    <sys:String x:Key="BatchRemoveCompleted">Usuń ukończone</sys:String>
+    <sys:String x:Key="BatchColumnStatus">Status</sys:String>
+    <sys:String x:Key="BatchColumnProgress">Postęp</sys:String>
+    <sys:String x:Key="BatchColumnUrl">URL</sys:String>
+    <sys:String x:Key="BatchColumnFormat">Format</sys:String>
+    <sys:String x:Key="BatchColumnSpeed">Prędkość</sys:String>
+    <sys:String x:Key="BatchImportTitle">Wybierz plik z URL</sys:String>
+    <sys:String x:Key="BatchImportFilter">Pliki tekstowe (*.txt)|*.txt|Pliki CSV (*.csv)|*.csv|Pliki JSON (*.json)|*.json|Wszystkie pliki (*.*)|*.*</sys:String>
+    <sys:String x:Key="BatchImportCount">Zaimportowano {0} URL</sys:String>
+    <sys:String x:Key="BatchUrlAdded">Dodano URL: {0}</sys:String>
+    <sys:String x:Key="BatchNoUrlInClipboard">Schowek nie zawiera URL YouTube</sys:String>
+    <sys:String x:Key="BatchDownloadStarting">Rozpoczynanie pobierania wsadowego...</sys:String>
+    <sys:String x:Key="BatchDownloadCompleted">Pobieranie wsadowe zakończone!</sys:String>
+    <sys:String x:Key="BatchDownloadCancelled">Pobieranie anulowane.</sys:String>
+    <sys:String x:Key="BatchDownloadPaused">Pobieranie wstrzymane.</sys:String>
+    <sys:String x:Key="BatchDownloadError">Błąd pobierania: {0}</sys:String>
+    <sys:String x:Key="BatchNoItemsSelected">Nie zaznaczono żadnych elementów do pobrania.</sys:String>
+    <sys:String x:Key="BatchInvalidOutputFolder">Nie wybrano lub nie istnieje folder docelowy.</sys:String>
+    <sys:String x:Key="BatchOutputFolderChanged">Zmieniono folder: {0}</sys:String>
+    <sys:String x:Key="BatchConfirmClose">Czy na pewno zamknąć okno pobierania wsadowego? Wszystkie trwające pobierania zostaną anulowane.</sys:String>
 
 </ResourceDictionary>

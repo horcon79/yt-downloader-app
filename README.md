@@ -1,4 +1,4 @@
-# Horcon - YouTube Downloader v.1.4
+# Horcon - YouTube Downloader v.1.5
 
 Aplikacja desktopowa do pobierania wideo z YouTube na platformę Windows.
 
@@ -13,6 +13,19 @@ Aplikacja desktopowa do pobierania wideo z YouTube na platformę Windows.
 - **Logi** - szczegółowe informacje o procesie pobierania zapisywane w folderze aplikacji
 - **Anulowanie pobierania** - możliwość zatrzymania w każdym momencie
 - **Historia pobierania** - lista poprzednich pobieranych filmów z statusem
+- **Przetwarzanie wsadowe** - masowe pobieranie wielu filmów jednocześnie
+
+### Funkcje przetwarzania wsadowego
+
+- **Import URL z pliku** - wczytywanie listy adresów z plików txt, csv, json
+- **Dodaj URL ze schowka** - szybkie wklejanie adresów ze schowka systemowego
+- **Zaznacz/Odznacz wszystko** - łatwe zarządzanie listą pobierania
+- **Śledzenie postępu** - wizualizacja postępu każdego pobierania wsadowego
+- **Pauza/Anulowanie** - kontrola nad procesem pobierania wsadowego
+- **Ponów nieudane** - automatyczne ponawianie nieudanych pobierań
+- **Usuń ukończone** - czyszczenie listy z zakończonymi pozycjami
+- **Pomiń istniejące pliki** - opcja pomijania już pobranych plików
+- **Autostart** - automatyczne rozpoczęcie pobierania po załadowaniu listy
 
 ## Wymagania
 
@@ -42,12 +55,36 @@ YoutubeDownloader/
 
 ## Użycie
 
+### Pobieranie pojedyncze
+
 1. Uruchom aplikację `YoutubeDownloader.exe`
 2. Wklej URL filmu YouTube
 3. Wybierz format docelowy (MP4, MKV, WebM, MP3, M4A)
 4. Opcjonalnie włącz transkodowanie i ustaw bitrate
 5. Wybierz folder zapisu
 6. Kliknij "Pobierz"
+
+### Przetwarzanie wsadowe
+
+1. Kliknij przycisk "Przetwarzanie wsadowe" w głównym oknie
+2. Dodaj URL filmów одним z sposobów:
+   - Kliknij "Dodaj z pliku" i wybierz plik txt, csv lub json z listą URL-i
+   - Kliknij "Dodaj ze schowka" aby wkleić URL-e ze schowka
+   - Wpisz URL ręcznie i kliknij "Dodaj"
+3. Zarządzaj listą:
+   - Zaznacz/Odznacz wszystkie pozycje
+   - Usuń wybrane lub wszystkie pozycje
+   - Przeglądaj szczegóły każdego filmu
+4. Skonfiguruj ustawienia wsadowe:
+   - Wybierz format pobierania
+   - Włącz opcję "Pomiń istniejące pliki"
+   - Włącz opcję "Autostart" dla automatycznego rozpoczęcia
+5. Kliknij "Rozpocznij pobieranie" aby rozpocząć proces wsadowy
+6. Podczas pobierania możesz:
+   - Wstrzymać/Wznowić pobieranie
+   - Anulować całe pobieranie wsadowe
+   - Ponowić nieudane pobierania
+   - Usunąć ukończone pozycje z listy
 
 ## Transkodowanie i kompresja
 

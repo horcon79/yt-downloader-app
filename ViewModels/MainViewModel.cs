@@ -78,6 +78,7 @@ public class MainViewModel : INotifyPropertyChanged
         ClearLogCommand = new RelayCommand(() => LogMessages = string.Empty);
         OpenFolderCommand = new RelayCommand(OpenOutputFolder);
         ShowHistoryCommand = new RelayCommand(ShowHistory);
+        ShowBatchDownloadCommand = new RelayCommand(ShowBatchDownload);
 
         // Inicjalizacja presetów
         _videoBitratePresets = VideoBitrateOption.GetPresets();
@@ -285,6 +286,7 @@ public class MainViewModel : INotifyPropertyChanged
     public ICommand ClearLogCommand { get; }
     public ICommand OpenFolderCommand { get; }
     public ICommand ShowHistoryCommand { get; }
+    public ICommand ShowBatchDownloadCommand { get; }
 
     #endregion
 
@@ -367,10 +369,16 @@ public class MainViewModel : INotifyPropertyChanged
 
     private void ShowHistory()
     {
-        // To zostanie zaimplementowane po utworzeniu HistoryWindow
         var historyWindow = new Views.HistoryWindow(_historyService);
         historyWindow.Owner = System.Windows.Application.Current.MainWindow;
         historyWindow.ShowDialog();
+    }
+
+    private void ShowBatchDownload()
+    {
+        var batchWindow = new Views.BatchDownloadWindow(_appDirectory);
+        batchWindow.Owner = System.Windows.Application.Current.MainWindow;
+        batchWindow.ShowDialog();
     }
 
     private void OpenOutputFolder()

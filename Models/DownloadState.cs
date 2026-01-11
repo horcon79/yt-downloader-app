@@ -6,6 +6,7 @@ namespace YoutubeDownloader.Models;
 public enum DownloadState
 {
     Idle,
+    Pending,
     Downloading,
     Completed,
     Cancelled,

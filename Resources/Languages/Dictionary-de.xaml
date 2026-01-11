@@ -72,5 +72,43 @@
 
     <!-- Language Selection -->
     <sys:String x:Key="LanguageLabel">Sprache:</sys:String>
+    
+    <!-- Batch Download Window -->
+    <sys:String x:Key="BatchWindowTitle">Stapel-Download</sys:String>
+    <sys:String x:Key="BatchDownloadButton">Stapel</sys:String>
+    <sys:String x:Key="BatchImportGroupHeader">URL importieren</sys:String>
+    <sys:String x:Key="BatchImportFromFile">Aus Datei importieren...</sys:String>
+    <sys:String x:Key="BatchAddUrl">URL hinzufügen</sys:String>
+    <sys:String x:Key="BatchSelectAll">Alle auswählen</sys:String>
+    <sys:String x:Key="BatchDeselectAll">Alle abwählen</sys:String>
+    <sys:String x:Key="BatchSettingsGroupHeader">Einstellungen</sys:String>
+    <sys:String x:Key="BatchQueueGroupHeader">Download-Warteschlange</sys:String>
+    <sys:String x:Key="BatchOverallProgressHeader">Gesamtfortschritt</sys:String>
+    <sys:String x:Key="BatchParallelLabel">Parallel:</sys:String>
+    <sys:String x:Key="BatchSkipExisting">Überspringen</sys:String>
+    <sys:String x:Key="BatchAutoStart">Autostart</sys:String>
+    <sys:String x:Key="BatchStartAll">Alle herunterladen</sys:String>
+    <sys:String x:Key="BatchPause">Pause</sys:String>
+    <sys:String x:Key="BatchRetryFailed">Wiederholen</sys:String>
+    <sys:String x:Key="BatchRemoveCompleted">Entfernen</sys:String>
+    <sys:String x:Key="BatchColumnStatus">Status</sys:String>
+    <sys:String x:Key="BatchColumnProgress">Fortschritt</sys:String>
+    <sys:String x:Key="BatchColumnUrl">URL</sys:String>
+    <sys:String x:Key="BatchColumnFormat">Format</sys:String>
+    <sys:String x:Key="BatchColumnSpeed">Geschwindigkeit</sys:String>
+    <sys:String x:Key="BatchImportTitle">Datei mit URLs auswählen</sys:String>
+    <sys:String x:Key="BatchImportFilter">Textdateien (*.txt)|*.txt|CSV-Dateien (*.csv)|*.csv|JSON-Dateien (*.json)|*.json|Alle Dateien (*.*)|*.*</sys:String>
+    <sys:String x:Key="BatchImportCount">{0} URLs importiert</sys:String>
+    <sys:String x:Key="BatchUrlAdded">URL hinzugefügt: {0}</sys:String>
+    <sys:String x:Key="BatchNoUrlInClipboard">Zwischenablage enthält keine YouTube-URL</sys:String>
+    <sys:String x:Key="BatchDownloadStarting">Stapel-Download wird gestartet...</sys:String>
+    <sys:String x:Key="BatchDownloadCompleted">Stapel-Download abgeschlossen!</sys:String>
+    <sys:String x:Key="BatchDownloadCancelled">Download abgebrochen.</sys:String>
+    <sys:String x:Key="BatchDownloadPaused">Download pausiert.</sys:String>
+    <sys:String x:Key="BatchDownloadError">Download-Fehler: {0}</sys:String>
+    <sys:String x:Key="BatchNoItemsSelected">Keine Elemente zum Herunterladen ausgewählt.</sys:String>
+    <sys:String x:Key="BatchInvalidOutputFolder">Ausgabeordner nicht ausgewählt oder existiert nicht.</sys:String>
+    <sys:String x:Key="BatchOutputFolderChanged">Ordner geändert: {0}</sys:String>
+    <sys:String x:Key="BatchConfirmClose">Möchten Sie das Stapel-Download-Fenster schließen? Alle laufenden Downloads werden abgebrochen.</sys:String>
 
 </ResourceDictionary>
