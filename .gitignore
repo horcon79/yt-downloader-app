@@ -1,0 +1,64 @@
+# .gitignore for .NET projects
+
+# Build results
+[Dd]ebug/
+[Rr]elease/
+x64/
+x86/
+[Aa]rch/
+[Bb]in/
+[Oo]bj/
+.wop/
+.uno/
+瓦尔基里/
+
+# Visual Studio user-specific files
+.vs/
+*.user
+*.userosscache
+*.suo
+
+# Visual Studio code editor settings
+.vscode/
+*.code-workspace
+
+# NuGet packages
+packages/
+*.nupkg
+
+# Build artifacts
+bin/
+obj/
+*.dll
+*.exe
+*.pdb
+*.xml
+*.pri
+*.res
+*.resources
+*.cache
+
+# Runtime data
+pdb/
+temp/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+ehthumbs.db
+Desktop.ini
+
+# Project-specific ignores
+tools/
+*.log
+logs/
+
+# IDE
+.idea/
+*.swp
+*.swo
+*~
+implement.*
+/output
+ASSUMPTIONS.md
+

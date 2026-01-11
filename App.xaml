@@ -1,0 +1,27 @@
+<Application x:Class="YoutubeDownloader.App"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:local="clr-namespace:YoutubeDownloader"
+             xmlns:c="clr-namespace:YoutubeDownloader.Converters"
+             Startup="Application_Startup">
+    
+    <Application.Resources>
+        <ResourceDictionary>
+            <ResourceDictionary.MergedDictionaries>
+                <ResourceDictionary/>
+            </ResourceDictionary.MergedDictionaries>
+            
+            <!-- Konwertery -->
+            <c:BoolToVisibilityConverter x:Key="BoolToVisibilityConverter"/>
+            <c:InverseBoolConverter x:Key="InverseBoolConverter"/>
+            <c:BoolToGreenConverter x:Key="BoolToGreenConverter"/>
+            <c:BoolToGrayConverter x:Key="BoolToGrayConverter"/>
+            <c:BoolToStringConverter x:Key="BoolToStringConverter"/>
+            <c:StringToBoolConverter x:Key="StringToBoolConverter"/>
+            <c:EnumToBoolConverter x:Key="EnumToBoolConverter"/>
+            <c:EnumToVisibilityConverter x:Key="EnumToVisibilityConverter"/>
+            
+        </ResourceDictionary>
+    </Application.Resources>
+    
+</Application>

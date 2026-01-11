@@ -1,0 +1,28 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net10.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <UseWPF>true</UseWPF>
+    
+    <!-- Informacje o aplikacji -->
+    <AssemblyName>YoutubeDownloader</AssemblyName>
+    <Product>YouTube Downloader</Product>
+    <Description>Aplikacja do pobierania wideo z YouTube</Description>
+    <Company>Minimax</Company>
+    <Copyright>Copyright 2024</Copyright>
+    
+    <!-- Wersja -->
+    <Version>1.0.0</Version>
+    <AssemblyVersion>1.0.0.0</AssemblyVersion>
+    <FileVersion>1.0.0.0</FileVersion>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.WindowsDesktop.App.WindowsForms" />
+    <Resource Include="download.png" />
+  </ItemGroup>
+
+</Project>
