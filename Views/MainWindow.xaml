@@ -112,18 +112,26 @@
                                  IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
                     
                     <!-- Opcje transkodowania -->
-                    <Grid Margin="20,5,5,5" Visibility="{Binding EncodingMode, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Transcode}">
-                        <Grid.ColumnDefinitions>
-                            <ColumnDefinition Width="Auto"/>
-                            <ColumnDefinition Width="*"/>
-                        </Grid.ColumnDefinitions>
-                        <Label Grid.Column="0" Content="Bitrate wideo (kbps):" Margin="0"/>
-                        <TextBox Grid.Column="1" 
-                                 Text="{Binding VideoBitrate}"
-                                 Width="100" 
-                                 HorizontalAlignment="Left"
-                                 IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
-                    </Grid>
+                    <StackPanel Margin="20,5,5,5" Visibility="{Binding EncodingMode, Converter={StaticResource EnumToVisibilityConverter}, ConverterParameter=Transcode}">
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5">
+                            <Label Content="Bitrate wideo:" Margin="0" VerticalAlignment="Center"/>
+                            <ComboBox ItemsSource="{Binding VideoBitratePresets}"
+                                      SelectedItem="{Binding SelectedVideoBitratePreset}"
+                                      DisplayMemberPath="Name"
+                                      Width="200"
+                                      Margin="5,0"
+                                      IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
+                        </StackPanel>
+                        
+                        <StackPanel Orientation="Horizontal" Margin="0,0,0,5" 
+                                    Visibility="{Binding IsCustomVideoBitrateVisible, Converter={StaticResource BoolToVisibilityConverter}}">
+                            <Label Content="Wpisz bitrate (kbps):" VerticalAlignment="Center"/>
+                            <TextBox Text="{Binding VideoBitrate, UpdateSourceTrigger=PropertyChanged}"
+                                     Width="80"
+                                     Margin="5,0"
+                                     IsEnabled="{Binding IsDownloading, Converter={StaticResource InverseBoolConverter}}"/>
+                        </StackPanel>
+                    </StackPanel>
                 </StackPanel>
 
                 <!-- Bitrate audio -->

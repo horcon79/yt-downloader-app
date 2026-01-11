@@ -32,6 +32,9 @@ public class MainViewModel : INotifyPropertyChanged
     private double _progress;
     private string _progressText = string.Empty;
     private string _speed = string.Empty;
+    private List<VideoBitrateOption> _videoBitratePresets;
+    private VideoBitrateOption _selectedVideoBitratePreset;
+    private bool _isCustomVideoBitrateVisible;
     private string _eta = string.Empty;
     private string _statusMessage = string.Empty;
     private string _logMessages = string.Empty;
@@ -53,6 +56,12 @@ public class MainViewModel : INotifyPropertyChanged
         SelectFolderCommand = new RelayCommand(SelectFolder);
         ClearLogCommand = new RelayCommand(() => LogMessages = string.Empty);
         OpenFolderCommand = new RelayCommand(OpenOutputFolder);
+
+        // Inicjalizacja presetów
+        _videoBitratePresets = VideoBitrateOption.GetPresets();
+        _selectedVideoBitratePreset = _videoBitratePresets[0]; // Srednia
+        _videoBitrate = _selectedVideoBitratePreset.Bitrate;
+        _isCustomVideoBitrateVisible = false;
 
         // Sprawdz dostepnosc narzedzi
         CheckTools();
@@ -151,6 +160,41 @@ public class MainViewModel : INotifyPropertyChanged
         set
         {
             _speed = value;
+            OnPropertyChanged();
+        }
+    }
+
+    public List<VideoBitrateOption> VideoBitratePresets => _videoBitratePresets;
+
+    public VideoBitrateOption SelectedVideoBitratePreset
+    {
+        get => _selectedVideoBitratePreset;
+        set
+        {
+            if (_selectedVideoBitratePreset != value)
+            {
+                _selectedVideoBitratePreset = value;
+                OnPropertyChanged();
+                
+                if (_selectedVideoBitratePreset.Bitrate.HasValue)
+                {
+                    VideoBitrate = _selectedVideoBitratePreset.Bitrate.Value;
+                    IsCustomVideoBitrateVisible = false;
+                }
+                else
+                {
+                    IsCustomVideoBitrateVisible = true;
+                }
+            }
+        }
+    }
+
+    public bool IsCustomVideoBitrateVisible
+    {
+        get => _isCustomVideoBitrateVisible;
+        set
+        {
+            _isCustomVideoBitrateVisible = value;
             OnPropertyChanged();
         }
     }
